@@ -1,11 +1,20 @@
 import React, {PropTypes} from 'react';
+import { TouchableHighlight, StyleSheet, Text } from 'react-native';
 
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 32,
+  },
+  complete: {
+    textDecorationLine: "line-through",
+  }
+});
 const TodoItem = (props) => {
 
-    let itemClass = "";
-    if(props.complete) itemClass = "complete";
+    let completeStyle;
+    if(props.complete) completeStyle = styles.complete;
 
-    return (<li className={itemClass} onClick={props.onClick}>{props.label}</li>);
+    return (<TouchableHighlight onPress={props.onClick} ><Text style={[styles.text, completeStyle]} >{props.label}</Text></TouchableHighlight>);
 }
 
 TodoItem.propTypes = {

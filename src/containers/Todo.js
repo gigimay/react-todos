@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 import TodoList from "../components/TodoList";
 import TodoFilter from "../components/TodoFilter";
 import TodoInput from "../components/TodoInput";
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 40,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  list: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  filter: {
+    flex: 0,
+    marginBottom: 10,
+  }
+});
 export default class Todo extends Component {
 
   constructor(props){
@@ -53,11 +70,15 @@ export default class Todo extends Component {
 
   render() {
     return (
-      <div>
+      <View style={styles.container}>
         <TodoInput onAddTodo={this.onAddTodo} />
-        <TodoList todos={this.state.todos} filter={this.state.filter} selectItem={this.toggleItem} />
-        <TodoFilter status={this.state.filter} onSelectFilter={this.selectFilter} />
-      </div>
+        <View style={styles.list}>
+          <TodoList todos={this.state.todos} filter={this.state.filter} selectItem={this.toggleItem} />
+        </View>
+        <View style={styles.filter}>
+          <TodoFilter status={this.state.filter} onSelectFilter={this.selectFilter} />
+        </View>
+      </View>
     );
   }
 }

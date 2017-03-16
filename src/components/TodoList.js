@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
 import TodoItem from "./TodoItem";
+import { View } from 'react-native';
 
 const TodoList = (props) => {
-  return <ul>
+  return <View>
   {
     props.todos.map((item, index)=>{
 
@@ -16,7 +17,7 @@ const TodoList = (props) => {
                        onClick={props.selectItem.bind(this,index)}
             />
     })
-  }</ul>;
+  }</View>;
 }
 
 TodoList.propTypes = {

@@ -1,5 +1,25 @@
 import React, { Component, PropTypes } from 'react';
+import { TouchableHighlight, View, TextInput, Text, StyleSheet } from 'react-native';
 
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
+    flex: 1,
+    borderColor: 'gray',
+    borderWidth: 1,
+    height: 40,
+    paddingLeft: 5,
+  },
+  button: {
+    flex: 0,
+    marginLeft: 5,
+    marginRight: 5,
+  },
+});
 class TodoInput extends Component {
   constructor(props) {
     super(props);
@@ -10,9 +30,9 @@ class TodoInput extends Component {
     }
   }
 
-  onInputChange(event){
+  onInputChange(text){
     this.setState({
-      inputValue: event.target.value,
+      inputValue: text,
     });
   }
 
@@ -25,10 +45,18 @@ class TodoInput extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" value={this.state.inputValue} onChange={this.onInputChange}/>
-        <button onClick={this.onClickButton}>Ajouter</button>
-      </div>
+        <View style={styles.container}>
+          <TextInput
+              style={styles.input}
+              value={this.state.inputValue}
+              onChangeText={this.onInputChange}
+          />
+          <TouchableHighlight
+              style={styles.button}
+              onPress={this.onClickButton}>
+              <Text>Ajouter</Text>
+          </TouchableHighlight>
+        </View>
     );
   }
 }

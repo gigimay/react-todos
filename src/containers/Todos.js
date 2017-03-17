@@ -8,13 +8,17 @@ function mapDispatchToProps(dispatch) {
     },
     onAddTodo: (label) => {
       dispatch({ type: 'ADD_TODO', label});
+    },
+    filterTodo(value){
+      dispatch({type: 'SET_VISIBILITY_FILTER', value})
     }
   }
 }
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    filter: state.filter,
   }
 }
 

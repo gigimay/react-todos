@@ -5,26 +5,12 @@ import TodoInput from "../components/TodoInput";
 
 export default class Todo extends Component {
 
-  constructor(props){
-    super(props);
-    this.selectFilter = this.selectFilter.bind(this);
-    this.state = {
-      filter: "none",
-    }
-  }
-
-  selectFilter(status){
-    this.setState({
-      filter: status,
-    });
-  }
-
   render() {
     return (
       <div>
         <TodoInput onAddTodo={this.props.onAddTodo} />
-        <TodoList todos={this.props.todos} filter={this.state.filter} selectItem={this.props.onTodoClick} />
-        <TodoFilter status={this.state.filter} onSelectFilter={this.selectFilter} />
+        <TodoList todos={this.props.todos} filter={this.props.filter} selectItem={this.props.onTodoClick} />
+        <TodoFilter status={this.props.filter} onSelectFilter={this.props.filterTodo} />
       </div>
     );
   }

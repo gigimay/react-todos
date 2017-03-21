@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Todo from './Todo';
+import Todo from '../components/Todo';
 
 function mapDispatchToProps(dispatch) {
   return {

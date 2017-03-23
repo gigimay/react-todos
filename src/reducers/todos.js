@@ -1,7 +1,7 @@
 const initialState = [];
 
 function todos(state = initialState, action) {
-  switch (action.type) {
+  switch (action && action.type) {
     case 'FETCH_TODOS_SUCCESS':
         return action.todos;
     case 'ADD_TODO':

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Todo from './Todo';
+import Todos from '../components/Todos';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -8,19 +8,23 @@ function mapDispatchToProps(dispatch) {
     },
     onAddTodo: (label) => {
       dispatch({ type: 'ADD_TODO', label});
+    },
+    filterTodo(value){
+      dispatch({type: 'SET_VISIBILITY_FILTER', value})
     }
   }
 }
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    filter: state.filter,
   }
 }
 
 const TodosContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Todo);
+)(Todos);
 
 export default TodosContainer;

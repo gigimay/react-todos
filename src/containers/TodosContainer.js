@@ -23,4 +23,4 @@ const TodosContainer = connect(
   mapDispatchToProps
 )(Todo);
 
-export default TodosContainer
+export default TodosContainer;

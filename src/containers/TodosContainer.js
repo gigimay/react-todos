@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Todo from '../components/Todo';
+import Todos from '../components/Todos';
 
 import React, { Component } from 'react';
 
@@ -54,6 +54,6 @@ function mapStateToProps(state) {
 const TodosContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(fetchTodos(Todo));
+)(fetchTodos(Todos));
 
-export default TodosContainer
+export default TodosContainer;

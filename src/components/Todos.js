@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoList from "../components/TodoList";
-import TodoFilter from "../components/TodoFilter";
-import TodoInput from "../components/TodoInput";
+import TodoList from "./TodoList";
+import TodoFilter from "./TodoFilter";
+import TodoInput from "./TodoInput";
 
-const Todo = (props) => {
+const Todos = (props) => {
     return (
       <div>
         <TodoInput onAddTodo={props.onAddTodo} />
@@ -12,4 +12,4 @@ const Todo = (props) => {
       </div>
     );
 }
-export default Todo;
+export default Todos;
